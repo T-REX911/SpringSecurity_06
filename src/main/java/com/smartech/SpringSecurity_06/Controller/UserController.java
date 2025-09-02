@@ -17,8 +17,15 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/getAll")
+    @GetMapping("/test")
     @PreAuthorize("hasRole('ADMIN')")
+    public String test(){
+        return "This Is Admin Test";
+    }
+
+    @PostMapping("/getAll")
+    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN') OR hasRole('ROLE_USER')")
     public ResponseEntity<List<User>> getAllUsers(){
         return ResponseEntity.ok(userService.getAllUsers());
     }

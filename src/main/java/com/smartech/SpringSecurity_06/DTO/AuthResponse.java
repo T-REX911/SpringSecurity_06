@@ -4,20 +4,20 @@ import lombok.Data;
 
 @Data
 public class AuthResponse {
-    private String token;
+    private String access_token;
 
     public AuthResponse() {
     }
 
     public AuthResponse(String token) {
-        this.token = token;
+        this.access_token = token;
     }
 
     public String getToken() {
-        return token;
+        return access_token;
     }
 
     public void setToken(String token) {
-        this.token = token;
+        this.access_token = token;
     }
 }
